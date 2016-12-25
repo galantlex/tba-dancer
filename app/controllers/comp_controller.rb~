@@ -1,0 +1,5 @@
+class CompController < ApplicationController
+  def index
+    @comps = Comp.all
+  end
+end

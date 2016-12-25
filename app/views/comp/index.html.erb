@@ -1,0 +1,11 @@
+<h1> These are the comps we have: </h1>
+
+<% @comps.each do |c| %>
+<div>
+  <h3> <%= c.name %> </h3>
+  <p> Location: <%= c.location %> </p>
+  <p> Date: <%= c.date %> </p>
+  <p> Contact: <%= c.contact %> </p>
+  <a href= <%= c.website %>> Website </a>
+</div>
+<% end %>

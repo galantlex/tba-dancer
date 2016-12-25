@@ -1,0 +1,6 @@
+Rails.application.routes.draw do
+  get '/comps' => 'comps#index'
+  get '/comps/:id' => 'comps#show'
+  get '/dancers' => 'dancers#index'
+  get '/dancers/:id' => 'dancers#show'
+end

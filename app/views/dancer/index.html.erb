@@ -1,0 +1,10 @@
+<h1> These are the dancers seeking partners </h1>
+
+<% @dancers.each do |d| %>
+<div>
+  <h3> <%= d.name %> </h3>
+  <p> Bio: <%= d.bio %> </p>
+  <p> Height: <%= d.height %> </p>
+  <p> Affiliation: <%= d.affiliation %> </p>
+</div>
+<% end %>
