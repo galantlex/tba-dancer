@@ -1,0 +1,4 @@
+<%= form_for @seek do |f| %>
+<%= f.label :comp %>
+<%= f.collection_select :comp_id, Comp.order(:name),:id,:name %>
+<%= f.select_tag(:role, options_for_select(@roles)) %>
