@@ -1,0 +1,10 @@
+<h1>Welcome to TBA Partner Search!</h1>
+
+<h2>Browse open searches by competition:</h2>
+<% @comps.each do |c| %>
+<p> <%= link_to c.name, comp_show_path(c) %> </p>
+<% end %>
+
+<p> or </p>
+
+<%= link_to "Create new search", create_search_path %>

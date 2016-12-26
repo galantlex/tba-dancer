@@ -4,6 +4,6 @@ class CompController < ApplicationController
   end
   def show
     @comp = Comp.find(params[:id])
-    @seeks = @comp.seek.all
+    @seeks = @comp.seeks.all
   end
 end
