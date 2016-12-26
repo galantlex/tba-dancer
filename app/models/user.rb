@@ -9,4 +9,6 @@ class User < ApplicationRecord
       user.save!
     end
   end
+  has_many :seeks
+  has_many :comps, through: :seeks
 end
