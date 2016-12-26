@@ -8,22 +8,22 @@ class SeekController < ApplicationController
   end
   def create
 	@seek = Seek.new(seek_params)
-	@seek.dancer_id = current_user.id
+	@seek.user_id = current_user.id
         @roles = ['Follower', 'Leader']
         @styles = ['Rhythm', 'Latin', 'Smooth', 'Standard']
         @levels = ['Newcomer', 'Bronze', 'Silver', 'Gold', 'Novice', 'Prechamp',
                    'Champ']
         if @seek.save
-      	  redirect_to root
+      	  redirect_to root_path
     	else
-          redirect_to root
+          render 'new'
     	end
   end
   
   private
   
   def seek_params
-    params.require(:seek).permit(:dancer_id, :comp_id, :role, :style,
+    params.require(:seek).permit(:user_id, :comp_id, :role, :style,
                                  :level)
   end
 end

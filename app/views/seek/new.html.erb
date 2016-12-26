@@ -1,0 +1,12 @@
+<%= form_for @seek, :url => url_for(:controller => 'seek', :action => 'create') do |f| %>
+<p> <%= f.label 'Comp:' %>
+  <%= f.collection_select :comp_id, Comp.order(:name),:id,:name %> </p>
+<p> <%= f.label 'Your role:' %>
+  <%= f.select(:role, options_for_select(@roles)) %> </p>
+<p> <%= f.label 'Style:' %>
+  <%= f.select(:style, options_for_select(@styles)) %> </p>
+<p> <%= f.label 'Level:' %>
+  <%= f.select(:level, options_for_select(@levels)) %> </p>
+
+ <%= f.submit %>
+<% end %>

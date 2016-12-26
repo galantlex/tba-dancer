@@ -12,5 +12,8 @@ Rails.application.routes.draw do
   get '/comps/:id' => 'comp#show', as: 'comp_show'
   get '/dancers' => 'dancer#index'
   get '/dancers/:id' => 'dancer#show'
-  get 'seeks/new' => 'seek#new', as: 'create_search'
+
+  resources :seek
+
+  post 'seek/new' => 'seek#create', as: 'create_search'
 end

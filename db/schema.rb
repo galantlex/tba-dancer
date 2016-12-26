@@ -22,17 +22,8 @@ ActiveRecord::Schema.define(version: 20161226012239) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "dancers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "height"
-    t.string   "bio"
-    t.string   "affiliation"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "seeks", force: :cascade do |t|
-    t.integer  "dancer_id"
+    t.integer  "user_id"
     t.integer  "comp_id"
     t.string   "role"
     t.string   "style"
@@ -40,7 +31,7 @@ ActiveRecord::Schema.define(version: 20161226012239) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["comp_id"], name: "index_seeks_on_comp_id"
-    t.index ["dancer_id"], name: "index_seeks_on_dancer_id"
+    t.index ["user_id"], name: "index_seeks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
