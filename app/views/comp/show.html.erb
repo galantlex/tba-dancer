@@ -1,0 +1,12 @@
+<h1> <%= @comp.name %> </h1>
+
+<p> Date: <%= @comp.date %> </p>
+<p> Contact: <%= @comp.contact %> </p>
+<p> Location: <%= @comp.location %> </p>
+<a href= <%=@comp.website%>> Website </a>
+
+<h2> Open partner searches:</h2>
+<% @seeks.each do |s| %>
+<p> Name is a <%= @s.level %> <%= @s.role %>
+  seeking a partner for <%= @s.style %> </p>
+<% end %>
