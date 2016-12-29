@@ -7,6 +7,8 @@
 
 <p> Current open partner searches: </p>
 <% @seeks.each do |s| %>
+<% if s.is_open %>
 <p> <%= s.level %> <%= s.role %> seeking a partner for <%= s.style %> at
-    <%= s.comp.name %> </p>
+  <%= s.comp.name %> </p>
+<% end %>
 <% end %>

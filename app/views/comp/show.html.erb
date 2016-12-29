@@ -7,6 +7,8 @@
 
 <h2> Open partner searches:</h2>
 <% @seeks.each do |s| %>
+<% if s.is_open %>
 <p> <%= link_to s.user.name, user_show_path(s.user) %> is a <%= s.level %> <%= s.role %>
   seeking a partner for <%= s.style %> </p>
+<% end %>
 <% end %>

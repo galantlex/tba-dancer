@@ -18,5 +18,7 @@ Rails.application.routes.draw do
 
   resources :seek
 
+  get 'my_seeks' => 'seek#my_seeks', as: 'my_seeks'
+  get 'close_seek/:id' => 'seek#close_seek', as: 'close_seek'
   post 'seek/new' => 'seek#create', as: 'create_search'
 end

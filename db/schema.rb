@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161228152311) do
+ActiveRecord::Schema.define(version: 20161229052106) do
 
   create_table "comps", force: :cascade do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20161228152311) do
     t.string   "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "is_open"
     t.index ["comp_id"], name: "index_seeks_on_comp_id"
     t.index ["user_id"], name: "index_seeks_on_user_id"
   end
