@@ -7,3 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+comps = Comp.create([{name: 'Tufts Comp', date: 'November 12th, 2016',
+                      location: 'Medford HS', contact: 'tuftscomp@gmail.com',
+                      website: 'https://sites.tufts.edu/ballroom/'},
+                     {name: 'BU Comp', date: 'February 19th, 2017',
+                      location: 'Metcalf Hall', contact: 'stinray@bu.edu',
+                      website: 'http://buballroom.weebly.com/competition.html'}
+                    ])
+
+

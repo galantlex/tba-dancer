@@ -1,0 +1,12 @@
+
+<p> <%= @user.name %> </p>
+
+<p> Bio: <%= @user.bio %> </p>
+<p> Contact email: <%= @user.contact %> </p>
+<p> Height: <%= @user.height %> inches </p>
+
+<p> Current open partner searches: </p>
+<% @seeks.each do |s| %>
+<p> <%= s.level %> <%= s.role %> seeking a partner for <%= s.style %> at
+    <%= s.comp.name %> </p>
+<% end %>

@@ -14,7 +14,7 @@ class SeekController < ApplicationController
         @levels = ['Newcomer', 'Bronze', 'Silver', 'Gold', 'Novice', 'Prechamp',
                    'Champ']
         if @seek.save
-      	  redirect_to root_path
+      	  redirect_to comp_show_path(@seek.comp_id)
     	else
           render 'new'
     	end

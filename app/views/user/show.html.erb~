@@ -1,0 +1,8 @@
+
+<p> <%= @user.name %> </p>
+
+<p> Current open partner searches: </p>
+<% @seeks.each do |s| %>
+<p> <%= s.level %> <%= s.role %> seeking a partner for <%= s.style %> at
+    <%= s.comp.name %> </p>
+<% end %>

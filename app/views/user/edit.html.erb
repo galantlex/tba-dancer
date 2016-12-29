@@ -1,0 +1,9 @@
+<%= form_for @user, :url => url_for(:controller => 'user', :action => 'edit') do |f| %>
+<p> <%= f.label 'Bio:' %>
+  <%= f.text_area :bio %> </p>
+<p> <%= f.label 'Contact Email:' %>
+  <%= f.email_field :contact %> </p>
+<p> <%= f.label 'Height (inches):' %>
+  <%= f.text_field :height %> </p>
+ <%= f.submit %>
+<% end %>

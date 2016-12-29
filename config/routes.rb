@@ -10,8 +10,11 @@ Rails.application.routes.draw do
 
   get '/comps' => 'comp#index'
   get '/comps/:id' => 'comp#show', as: 'comp_show'
-  get '/dancers' => 'dancer#index'
-  get '/dancers/:id' => 'dancer#show'
+  get '/users' => 'user#index'
+  get '/users/:id' => 'user#show', as: 'user_show'
+  get '/profile' => 'user#profile', as: 'profile_show'
+  get '/profile/edit' => 'user#edit', as: 'profile_edit'
+  patch '/profile/edit' => 'user#save_edit'
 
   resources :seek
 

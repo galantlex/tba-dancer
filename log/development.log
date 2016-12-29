@@ -2479,3 +2479,1284 @@ app/controllers/seek_controller.rb:11:in `create'
 Started PUT "/__web_console/repl_sessions/1a0f006cff5fb370edcda9770088a391" for 127.0.0.1 at 2016-12-26 01:40:42 -0500
 Started PUT "/__web_console/repl_sessions/1a0f006cff5fb370edcda9770088a391" for 127.0.0.1 at 2016-12-26 01:40:43 -0500
 Started PUT "/__web_console/repl_sessions/1a0f006cff5fb370edcda9770088a391" for 127.0.0.1 at 2016-12-26 01:40:43 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "comps" ("name", "date", "location", "contact", "website", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Tufts Comp"], ["date", "November 12th, 2016"], ["location", "Medford HS"], ["contact", "tuftscomp@gmail.com"], ["website", "https://sites.tufts.edu/ballroom/"], ["created_at", 2016-12-26 18:16:28 UTC], ["updated_at", 2016-12-26 18:16:28 UTC]]
+  [1m[35m (26.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "comps" ("name", "date", "location", "contact", "website", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "BU Comp"], ["date", "February 19th, 2017"], ["location", "Metcalf Hall"], ["contact", "stinray@bu.edu"], ["website", "http://buballroom.weebly.com/competition.html"], ["created_at", 2016-12-26 18:16:28 UTC], ["updated_at", 2016-12-26 18:16:28 UTC]]
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2016-12-26 13:16:59 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 315ms (Views: 300.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/comps/2" for 127.0.0.1 at 2016-12-26 13:17:03 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 2]]
+  Rendered comp/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 70ms (Views: 43.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/seek/new" for 127.0.0.1 at 2016-12-26 13:17:08 -0500
+Processing by SeekController#new as HTML
+  Rendering seek/new.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps" ORDER BY "comps"."name" ASC[0m
+  Rendered seek/new.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 105ms (Views: 83.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/seek" for 127.0.0.1 at 2016-12-26 13:17:10 -0500
+Processing by SeekController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fa6JcfyvwLmXfEokg4eFaUu9epqTpXnBFmUVTzKM6tiBO66HIkfVPVQHxnZxN55ckT2G3Hj/XViRzX6nY6QTEQ==", "seek"=>{"comp_id"=>"2", "role"=>"Follower", "style"=>"Rhythm", "level"=>"Newcomer"}, "commit"=>"Create Seek"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/seek_controller.rb:11:in `create'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.7ms)
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2016-12-26 13:17:19 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2016-12-26 13:17:19 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=badb45985caa3d777df5715c526f1f3676e9d22636b169db&code=4/EF_tkGdJeu3fSPjz5Xvmyl7boMqwtSgAwXwh1Yaee30" for 127.0.0.1 at 2016-12-26 13:17:20 -0500
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"badb45985caa3d777df5715c526f1f3676e9d22636b169db", "code"=>"4/EF_tkGdJeu3fSPjz5Xvmyl7boMqwtSgAwXwh1Yaee30", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/lexi/Desktop/tba-dancer/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "115479719279775779968"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "name", "oauth_token", "oauth_expires_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["provider", "google_oauth2"], ["uid", "115479719279775779968"], ["name", "Lexi Galantino"], ["oauth_token", "ya29.CjDAAypvx0uous70ajmuJrzK6pceZEVUuZtmnodjGa3kOZ2WzwCd46CmsZYGN8Vy0Ko"], ["oauth_expires_at", 2016-12-26 19:17:20 UTC], ["created_at", 2016-12-26 18:17:20 UTC], ["updated_at", 2016-12-26 18:17:20 UTC]]
+  [1m[35m (77.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 93ms (ActiveRecord: 78.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-26 13:17:20 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/seek/new" for 127.0.0.1 at 2016-12-26 13:17:22 -0500
+Processing by SeekController#new as HTML
+  Rendering seek/new.html.erb within layouts/application
+  [1m[36mComp Load (0.4ms)[0m  [1m[34mSELECT "comps".* FROM "comps" ORDER BY "comps"."name" ASC[0m
+  Rendered seek/new.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/seek" for 127.0.0.1 at 2016-12-26 13:17:30 -0500
+Processing by SeekController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rxj0znAMshhnj3WiNWKd9yTNbCISabN5XhyezWuFGpM7jdM4ruSnnKT0+fDH0obC/k2QZPkzl+DZtPUlOq3jWg==", "seek"=>{"comp_id"=>"1", "role"=>"Follower", "style"=>"Rhythm", "level"=>"Silver"}, "commit"=>"Create Seek"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "seeks" ("user_id", "comp_id", "role", "style", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["comp_id", 1], ["role", "Follower"], ["style", "Rhythm"], ["level", "Silver"], ["created_at", 2016-12-26 18:17:30 UTC], ["updated_at", 2016-12-26 18:17:30 UTC]]
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-26 13:17:30 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-26 13:17:32 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  Rendered comp/show.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 45ms (Views: 39.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/seek/new" for 127.0.0.1 at 2016-12-26 13:20:00 -0500
+Processing by SeekController#new as HTML
+  Rendering seek/new.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps" ORDER BY "comps"."name" ASC[0m
+  Rendered seek/new.html.erb within layouts/application (15.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 83ms (Views: 61.4ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/seek" for 127.0.0.1 at 2016-12-26 13:20:01 -0500
+Processing by SeekController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8btX+GD5G54JteiKZlXCVIRp5u8ikijNE3p3Z7T2TqBlLnAOvhEOGsrOZNiU5dlhXukaqcnIDFSU0hyP5d63aQ==", "seek"=>{"comp_id"=>"2", "role"=>"Follower", "style"=>"Rhythm", "level"=>"Newcomer"}, "commit"=>"Create Seek"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "seeks" ("user_id", "comp_id", "role", "style", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["comp_id", 2], ["role", "Follower"], ["style", "Rhythm"], ["level", "Newcomer"], ["created_at", 2016-12-26 18:20:01 UTC], ["updated_at", 2016-12-26 18:20:01 UTC]]
+  [1m[35m (48.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/comps/2
+Completed 302 Found in 59ms (ActiveRecord: 49.1ms)
+
+
+Started GET "/comps/2" for 127.0.0.1 at 2016-12-26 13:20:01 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 2]]
+  Rendered comp/show.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 43ms (Views: 37.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-26 13:20:13 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  Rendered comp/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 51ms (Views: 48.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-26 13:21:15 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-26 13:21:18 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  Rendered comp/show.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for 1:Fixnum):
+     7: 
+     8: <h2> Open partner searches:</h2>
+     9: <% @seeks.each do |s| %>
+    10: <p> <%= s.user_id.name %> is a <%= s.level %> <%= s.role %>
+    11:   seeking a partner for <%= s.style %> </p>
+    12: <% end %>
+  
+app/views/comp/show.html.erb:10:in `block in _app_views_comp_show_html_erb___681563417245144828_70166579920300'
+app/views/comp/show.html.erb:9:in `_app_views_comp_show_html_erb___681563417245144828_70166579920300'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.5ms)
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-26 13:22:59 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.4ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.3ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  Rendered comp/show.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 39ms (Views: 35.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-26 13:26:09 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.4ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (4.6ms)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 36ms (Views: 32.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-26 13:26:38 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 25.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-26 13:29:09 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 36ms (Views: 32.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-26 13:46:24 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (24.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 158ms (Views: 141.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-26 13:46:26 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered user/show.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 46ms (Views: 42.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-26 13:47:20 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-26 13:48:45 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (2.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 45ms (Views: 42.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-26 13:48:46 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 57ms (Views: 54.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-26 13:50:32 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 26.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-26 13:54:43 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (2.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 42ms (Views: 40.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-26 13:54:54 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 28.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-26 14:01:59 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 52ms (Views: 50.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-26 14:24:59 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.1) lib/active_record/migration.rb:573:in `check_pending!'
+activerecord (5.0.1) lib/active_record/migration.rb:549:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDetailsToUsers (20161226190504)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161226190504"]]
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_seeks_on_comp_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_seeks_on_comp_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_seeks_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_seeks_on_user_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2016-12-26 14:26:11 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (12.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 435ms (Views: 417.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-26 14:26:34 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.4ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (31.8ms)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 119ms (Views: 74.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-26 14:26:44 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (5.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 55ms (Views: 49.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-26 14:26:56 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 43ms (Views: 41.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/seek/new" for 127.0.0.1 at 2016-12-26 14:26:58 -0500
+Processing by SeekController#new as HTML
+  Rendering seek/new.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps" ORDER BY "comps"."name" ASC[0m
+  Rendered seek/new.html.erb within layouts/application (34.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 74ms (Views: 72.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/seek" for 127.0.0.1 at 2016-12-26 14:27:09 -0500
+Processing by SeekController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wjvc7eqasNIrKYIH/xcKoLNS1Khsfl4Q/Ha6pBxfkpfOrvsbNHKlVuhSDlUNpxGVadIo7ockeol73tFMTXdrXg==", "seek"=>{"comp_id"=>"1", "role"=>"Follower", "style"=>"Latin", "level"=>"Silver"}, "commit"=>"Create Seek"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "seeks" ("user_id", "comp_id", "role", "style", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["comp_id", 1], ["role", "Follower"], ["style", "Latin"], ["level", "Silver"], ["created_at", 2016-12-26 19:27:09 UTC], ["updated_at", 2016-12-26 19:27:09 UTC]]
+  [1m[35m (26.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/comps/1
+Completed 302 Found in 43ms (ActiveRecord: 28.5ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-26 14:27:09 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.3ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (5.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 34ms (Views: 31.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-28 10:18:20 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (7.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 88ms (Views: 85.3ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDetailsToUsers (20161228152311)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "users" ADD "height" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "bio" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "contact" varchar[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161228152311"]]
+  [1m[35m (74.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_seeks_on_comp_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_seeks_on_comp_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_seeks_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_seeks_on_user_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2016-12-28 10:23:43 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (9.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 64ms (Views: 55.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-28 22:24:35 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (12.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 57ms (Views: 45.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-28 22:24:38 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (9.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 38ms (Views: 33.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-28 22:25:30 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comps/2" for 127.0.0.1 at 2016-12-28 22:25:34 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-28 22:26:01 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/edit" for 127.0.0.1 at 2016-12-28 22:34:55 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/edit"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered collection of /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [22 times] (6.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (29.9ms)
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-28 22:35:00 -0500
+Processing by UserController#edit as HTML
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 40.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-28 23:01:17 -0500
+Processing by UserController#edit as HTML
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @user, :url => url_for(:controller => 'user', :action => 'edit') do |f| %>
+    2: <p> <%= f.label 'Bio:' %>
+    3:   <%= f.text_area :bio %> </p>
+    4: <p> <%= f.label 'Contact Email:' %>
+  
+app/views/user/edit.html.erb:1:in `_app_views_user_edit_html_erb___1897477203571887744_69903178015420'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (29.0ms)
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-28 23:01:44 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (38.3ms)
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `email' for #<User:0x007f273e841ce8>):
+    2: <p> <%= f.label 'Bio:' %>
+    3:   <%= f.text_area :bio %> </p>
+    4: <p> <%= f.label 'Contact Email:' %>
+    5:   <%= f.text_field :email %> </p>
+    6: <p> <%= f.label 'Height (inches):' %>
+    7:   <%= f.text_field :height %> </p>
+    8:  <%= f.submit %>
+  
+app/views/user/edit.html.erb:5:in `block in _app_views_user_edit_html_erb___1897477203571887744_69903264646160'
+app/views/user/edit.html.erb:1:in `_app_views_user_edit_html_erb___1897477203571887744_69903264646160'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.4ms)
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-28 23:02:12 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 62ms (Views: 60.6ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/profile/edit" for 127.0.0.1 at 2016-12-28 23:02:22 -0500
+  
+ActionController::RoutingError (No route matches [PATCH] "/profile/edit"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered collection of /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [22 times] (5.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.1ms)
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-28 23:03:23 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (42.2ms)
+Completed 200 OK in 67ms (Views: 65.3ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/profile/edit" for 127.0.0.1 at 2016-12-28 23:03:33 -0500
+  
+ActionController::RoutingError (No route matches [PATCH] "/profile/edit"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered collection of /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [22 times] (7.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (41.3ms)
+Started GET "/" for 127.0.0.1 at 2016-12-28 23:03:39 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.5ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (10.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 35.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-28 23:08:16 -0500
+  
+SyntaxError (/home/lexi/Desktop/tba-dancer/app/controllers/user_controller.rb:17: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/user_controller.rb:17: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.3ms)
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-28 23:08:38 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 52ms (Views: 39.4ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/profile/edit" for 127.0.0.1 at 2016-12-28 23:08:44 -0500
+Processing by UserController#save_edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9ISA5emmvb3ahN8eZcWMjqhMGq9Pvax5OS6yqNqIjc0Z1dwJcsZWy/WSVHLcVSMPxgk0L3kc5Vn47j0o5JHZVQ==", "user"=>{"bio"=>"Hello!", "contact"=>"", "height"=>""}, "commit"=>"Update User"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `save' for nil:NilClass):
+  
+app/controllers/user_controller.rb:12:in `save_edit'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.3ms)
+Started PATCH "/profile/edit" for 127.0.0.1 at 2016-12-28 23:20:14 -0500
+  
+SyntaxError (/home/lexi/Desktop/tba-dancer/app/controllers/user_controller.rb:23: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/user_controller.rb:23: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.5ms)
+Started PATCH "/profile/edit" for 127.0.0.1 at 2016-12-28 23:21:08 -0500
+Processing by UserController#save_edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9ISA5emmvb3ahN8eZcWMjqhMGq9Pvax5OS6yqNqIjc0Z1dwJcsZWy/WSVHLcVSMPxgk0L3kc5Vn47j0o5JHZVQ==", "user"=>{"bio"=>"Hello!", "contact"=>"", "height"=>""}, "commit"=>"Update User"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "contact" = ?, "bio" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["contact", ""], ["bio", "Hello!"], ["updated_at", 2016-12-29 04:21:08 UTC], ["id", 1]]
+  [1m[35m (7.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/profile
+Completed 302 Found in 24ms (ActiveRecord: 8.6ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2016-12-28 23:21:08 -0500
+Processing by UserController#profile as HTML
+Completed 406 Not Acceptable in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (UserController#profile is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.0.1) lib/action_controller/metal/implicit_render.rb:56:in `default_render'
+actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+omniauth (1.3.1) lib/omniauth/strategy.rb:186:in `call!'
+omniauth (1.3.1) lib/omniauth/strategy.rb:164:in `call'
+omniauth (1.3.1) lib/omniauth/builder.rb:63:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.6ms)
+Started GET "/profile" for 127.0.0.1 at 2016-12-28 23:22:04 -0500
+Processing by UserController#profile as HTML
+  Rendering user/profile.html.erb within layouts/application
+  Rendered user/profile.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 31.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2016-12-28 23:23:23 -0500
+Processing by UserController#profile as HTML
+  Rendering user/profile.html.erb within layouts/application
+  Rendered user/profile.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 40.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/edit/profile" for 127.0.0.1 at 2016-12-28 23:23:30 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/edit/profile"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered collection of /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [23 times] (8.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (29.3ms)
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-28 23:23:37 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/profile/edit" for 127.0.0.1 at 2016-12-28 23:23:52 -0500
+Processing by UserController#save_edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wn4gE7Xt0ZuhUOprSei9bPEsuWZ8IVB3onaKdL+2I7i3L3z/Lo067Y5GYQfweBLtn2mX5kqAGVdjtgX0ga93IA==", "user"=>{"bio"=>"Hello!", "contact"=>"galantlex@gmail.com", "height"=>"52"}, "commit"=>"Update User"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "contact" = ?, "height" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["contact", "galantlex@gmail.com"], ["height", 52], ["updated_at", 2016-12-29 04:23:52 UTC], ["id", 1]]
+  [1m[35m (15.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 16.1ms)
+
+
+  
+NoMethodError (undefined method `show_user_path' for #<UserController:0x007f2744207728>
+Did you mean?  user_show_path):
+  
+app/controllers/user_controller.rb:14:in `save_edit'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.1ms)
+Started PATCH "/profile/edit" for 127.0.0.1 at 2016-12-28 23:24:06 -0500
+Processing by UserController#save_edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wn4gE7Xt0ZuhUOprSei9bPEsuWZ8IVB3onaKdL+2I7i3L3z/Lo067Y5GYQfweBLtn2mX5kqAGVdjtgX0ga93IA==", "user"=>{"bio"=>"Hello!", "contact"=>"galantlex@gmail.com", "height"=>"52"}, "commit"=>"Update User"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 28ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-28 23:24:06 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (19.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 40.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-28 23:28:02 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 43ms (Views: 29.2ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/profile/edit" for 127.0.0.1 at 2016-12-28 23:28:04 -0500
+Processing by UserController#save_edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wc27OP8xqyqti0eeihd/VVYQ3cKePIdYGB9tU/CiQVIsnOfUZFFAXIKdzPIzh9DUOFXzQqidznjZ3+LTzrsVyg==", "user"=>{"bio"=>"Hello!", "contact"=>"galantlex@gmail.com", "height"=>"52"}, "commit"=>"Update User"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-28 23:28:04 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (28.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 59ms (Views: 51.3ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/profile/edit" for 127.0.0.1 at 2016-12-28 23:28:17 -0500
+Processing by UserController#save_edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wc27OP8xqyqti0eeihd/VVYQ3cKePIdYGB9tU/CiQVIsnOfUZFFAXIKdzPIzh9DUOFXzQqidznjZ3+LTzrsVyg==", "user"=>{"bio"=>"Hello!", "contact"=>"galantlex@gmail.com", "height"=>"52"}, "commit"=>"Update User"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-28 23:28:17 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (5.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 38.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-28 23:31:21 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.3ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.6ms)
+
+
+  
+SyntaxError (/home/lexi/Desktop/tba-dancer/app/views/layouts/application.html.erb:17: unknown regexp options - trg
+unmatched close parenthesis: /div>
+    <div>
+      <% if current_user );@output_buffer.safe_append='
+        Signed in as <strong>'.freeze;@output_buffer.append=( current_user.name );@output_buffer.safe_append='</
+/home/lexi/Desktop/tba-dancer/app/views/layouts/application.html.erb:24: unknown regexp options - bdy
+/home/lexi/Desktop/tba-dancer/app/views/layouts/application.html.erb:25: syntax error, unexpected '<'
+</html>
+ ^
+/home/lexi/Desktop/tba-dancer/app/views/layouts/application.html.erb:25: unterminated regexp meets end of file):
+  
+app/views/layouts/application.html.erb:17: unknown regexp options - trg
+app/views/layouts/application.html.erb:24: unknown regexp options - bdy
+app/views/layouts/application.html.erb:25: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:25: unterminated regexp meets end of file
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.4ms)
+Started GET "/users/1" for 127.0.0.1 at 2016-12-28 23:31:41 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 28.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-28 23:31:43 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/profile/edit" for 127.0.0.1 at 2016-12-28 23:31:45 -0500
+Processing by UserController#save_edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6714dmh7wWQEuUogWeACPV/50SdLZS4cqSovqlRzU6xO5vOEWWWYGBkkvSbzh9v/9O1KNnGZew/aIallc0kM9g==", "user"=>{"bio"=>"Hello!", "contact"=>"galantlex@gmail.com", "height"=>"52"}, "commit"=>"Update User"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-28 23:31:45 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 30ms (Views: 26.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-28 23:36:15 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (6.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 57ms (Views: 54.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-28 23:53:49 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-28 23:53:52 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.5ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (3.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 26.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-28 23:53:54 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 37ms (Views: 35.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-28 23:54:01 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.3ms)
+
+

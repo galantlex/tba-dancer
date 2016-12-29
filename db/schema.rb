@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226012239) do
+ActiveRecord::Schema.define(version: 20161228152311) do
 
   create_table "comps", force: :cascade do |t|
     t.string   "name"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 20161226012239) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "height"
+    t.string   "bio"
+    t.string   "contact"
   end
 
 end
