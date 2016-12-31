@@ -6072,3 +6072,198 @@ Processing by UserController#show as HTML
 Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:47:57 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-31 14:47:59 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-31 14:48:01 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComp Load (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:48:08 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-31 17:13:06 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 55ms (Views: 52.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 17:13:34 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/comps/2" for 127.0.0.1 at 2016-12-31 17:13:35 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 2]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 23ms (Views: 21.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 17:13:39 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2016-12-31 17:14:01 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=9732faf7e054aa1eb2b4aa6c8b264f3261e1f7bf731756ed&code=4/C6QKJfaGLF8hjGtEyfGf5XCnutA6Fq08-r1ghQamBVg" for 127.0.0.1 at 2016-12-31 17:14:01 -0500
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"9732faf7e054aa1eb2b4aa6c8b264f3261e1f7bf731756ed", "code"=>"4/C6QKJfaGLF8hjGtEyfGf5XCnutA6Fq08-r1ghQamBVg", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/lexi/Desktop/tba-dancer/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "115479719279775779968"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["oauth_token", "ya29.CjDFA9LIkV77T6XpHMwujZ83dXrCljCfl9WjCIpe1eLAn67L6T1pQDdefkn6C1P7lXg"], ["oauth_expires_at", 2016-12-31 23:14:00 UTC], ["updated_at", 2016-12-31 22:14:01 UTC], ["id", 1]]
+  [1m[35m (16.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 28ms (ActiveRecord: 17.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 17:14:01 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 17:15:02 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 17:15:59 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 17:16:38 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 17:17:09 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 17:18:19 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 17:19:27 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 117ms (Views: 116.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2016-12-31 17:19:35 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 17:19:35 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 49ms (Views: 47.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2016-12-31 17:19:38 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2016-12-31 17:19:38 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=f4c371cdc866215709dcaed26c27221152070c573ea7f9a6&code=4/llivg9ATMUE9OSWZPS7wO_Hf0ylLUfp2gXyAHQ5Y-F8" for 127.0.0.1 at 2016-12-31 17:19:38 -0500
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"f4c371cdc866215709dcaed26c27221152070c573ea7f9a6", "code"=>"4/llivg9ATMUE9OSWZPS7wO_Hf0ylLUfp2gXyAHQ5Y-F8", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/lexi/Desktop/tba-dancer/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "115479719279775779968"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["oauth_token", "ya29.CjDFA53Rb1W79MpsybUddyvHaRHkqS5ld6lPpXH9HAIK4J5ROb6MT9esyZ_KcjN2LiU"], ["oauth_expires_at", 2016-12-31 23:19:39 UTC], ["updated_at", 2016-12-31 22:19:39 UTC], ["id", 1]]
+  [1m[35m (51.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 56ms (ActiveRecord: 52.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 17:19:39 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 45.7ms | ActiveRecord: 0.5ms)
+
+
