@@ -4338,3 +4338,399 @@ Processing by HomeController#show as HTML
 Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2016-12-29 01:11:47 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: bootstrap-sprockets.
+Load paths:
+  /home/lexi/Desktop/tba-dancer/app/assets/config
+  /home/lexi/Desktop/tba-dancer/app/assets/images
+  /home/lexi/Desktop/tba-dancer/app/assets/javascripts
+  /home/lexi/Desktop/tba-dancer/app/assets/stylesheets
+  /home/lexi/Desktop/tba-dancer/vendor/assets/javascripts
+  /home/lexi/Desktop/tba-dancer/vendor/assets/stylesheets
+  /var/lib/gems/2.3.0/gems/jquery-rails-4.2.1/vendor/assets/javascripts
+  /var/lib/gems/2.3.0/gems/coffee-rails-4.2.1/lib/assets/javascripts
+  /var/lib/gems/2.3.0/gems/actioncable-5.0.1/lib/assets/compiled
+  /var/lib/gems/2.3.0/gems/turbolinks-source-5.0.0/lib/assets/javascripts):
+    4:     <title>TbaDancer</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:     <%= csrf_meta_tags %>
+   10:   </head>
+  
+app/assets/stylesheets/application.css.sass:18
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___2644451082937088144_69903263591380'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.3ms)
+Started GET "/" for 127.0.0.1 at 2016-12-29 01:12:13 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: bootstrap-sprockets.
+Load paths:
+  /home/lexi/Desktop/tba-dancer/app/assets/config
+  /home/lexi/Desktop/tba-dancer/app/assets/images
+  /home/lexi/Desktop/tba-dancer/app/assets/javascripts
+  /home/lexi/Desktop/tba-dancer/app/assets/stylesheets
+  /home/lexi/Desktop/tba-dancer/vendor/assets/javascripts
+  /home/lexi/Desktop/tba-dancer/vendor/assets/stylesheets
+  /var/lib/gems/2.3.0/gems/jquery-rails-4.2.1/vendor/assets/javascripts
+  /var/lib/gems/2.3.0/gems/coffee-rails-4.2.1/lib/assets/javascripts
+  /var/lib/gems/2.3.0/gems/actioncable-5.0.1/lib/assets/compiled
+  /var/lib/gems/2.3.0/gems/turbolinks-source-5.0.0/lib/assets/javascripts):
+    4:     <title>TbaDancer</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:     <%= csrf_meta_tags %>
+   10:   </head>
+  
+app/assets/stylesheets/application.css.sass:18
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___2644451082937088144_69903287754940'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.2ms)
+Started GET "/" for 127.0.0.1 at 2016-12-29 01:16:30 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (21.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 9209ms (Views: 9189.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/my_seeks" for 127.0.0.1 at 2016-12-29 01:16:46 -0500
+Processing by SeekController#my_seeks as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering seek/my_seeks.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComp Load (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered seek/my_seeks.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 106ms (Views: 82.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-29 01:16:48 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (72.7ms)
+Completed 200 OK in 130ms (Views: 128.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-29 01:16:50 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (6.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (8.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 92ms (Views: 79.5ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/my_seeks" for 127.0.0.1 at 2016-12-29 01:16:52 -0500
+Processing by SeekController#my_seeks as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering seek/my_seeks.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered seek/my_seeks.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 108ms (Views: 104.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-29 01:16:53 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 82ms (Views: 80.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-29 01:17:16 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (8.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 92ms (Views: 84.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-29 01:17:20 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (4.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 88ms (Views: 84.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-29 01:17:27 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 77ms (Views: 76.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 13:53:41 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 105ms (Views: 103.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 13:53:50 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 45.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 13:57:11 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 74ms (Views: 73.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 13:57:16 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 46ms (Views: 44.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 13:57:17 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 13:57:18 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 57ms (Views: 56.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-31 13:57:20 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 66ms (Views: 65.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/my_seeks" for 127.0.0.1 at 2016-12-31 13:57:22 -0500
+Processing by SeekController#my_seeks as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering seek/my_seeks.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComp Load (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered seek/my_seeks.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 73ms (Views: 70.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-31 13:57:23 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 67ms (Views: 65.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 13:57:24 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 68ms (Views: 66.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 13:57:26 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 60ms (Views: 59.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 13:57:28 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 59ms (Views: 57.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-31 13:57:30 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 69ms (Views: 68.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/my_seeks" for 127.0.0.1 at 2016-12-31 13:57:31 -0500
+Processing by SeekController#my_seeks as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering seek/my_seeks.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered seek/my_seeks.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 73ms (Views: 70.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 13:57:33 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 80ms (Views: 79.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-31 13:57:48 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 58ms (Views: 57.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-31 13:57:50 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 57ms (Views: 56.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-31 13:58:40 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-31 13:59:59 -0500
+Processing by UserController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 63ms (Views: 62.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:00:06 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 57ms (Views: 56.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:00:52 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:01:01 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 45ms (Views: 44.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:02:34 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 66ms (Views: 64.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:03:18 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 60ms (Views: 59.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:04:18 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 46ms (Views: 44.9ms | ActiveRecord: 0.3ms)
+
+
