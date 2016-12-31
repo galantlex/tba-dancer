@@ -4,8 +4,3 @@
 <% @comps.each do |c| %>
 <p> <%= link_to c.name, comp_show_path(c) %> </p>
 <% end %>
-<% if current_user %>
-<p> or </p>
-
-<%= link_to "Create new search", create_search_path %>
-<% end %>
