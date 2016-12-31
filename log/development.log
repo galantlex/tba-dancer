@@ -4734,3 +4734,962 @@ Processing by HomeController#show as HTML
 Completed 200 OK in 46ms (Views: 44.9ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/signout" for 127.0.0.1 at 2016-12-31 14:06:05 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:06:05 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 56ms (Views: 55.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-31 14:06:09 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 54ms (Views: 51.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:06:13 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 70ms (Views: 68.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/seek/new" for 127.0.0.1 at 2016-12-31 14:06:14 -0500
+Processing by SeekController#new as HTML
+  Rendering seek/new.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps" ORDER BY "comps"."name" ASC[0m
+  Rendered seek/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 63ms (Views: 61.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/seek" for 127.0.0.1 at 2016-12-31 14:06:16 -0500
+Processing by SeekController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VxT5j2m48Twj3ZHkgBMV+L8FToC86WqDzhCQxJDh0f3Dgd55t1DkuOCmHbZyow7NZYWyxlezThpJuPsswckoNA==", "seek"=>{"comp_id"=>"2", "role"=>"Follower", "style"=>"Rhythm", "level"=>"Newcomer"}, "commit"=>"Create Seek"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/seek_controller.rb:12:in `create'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.3ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:06:21 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 60ms (Views: 59.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-31 14:06:29 -0500
+Processing by UserController#edit as HTML
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @user, :url => url_for(:controller => 'user', :action => 'edit') do |f| %>
+    2: <p> <%= f.label 'Bio:' %>
+    3:   <%= f.text_area :bio %> </p>
+    4: <p> <%= f.label 'Contact Email:' %>
+  
+app/views/user/edit.html.erb:1:in `_app_views_user_edit_html_erb__2936259209364349059_70209474026080'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.3ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:06:31 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 54ms (Views: 52.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/my_seeks" for 127.0.0.1 at 2016-12-31 14:06:32 -0500
+Processing by SeekController#my_seeks as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `seeks' for nil:NilClass):
+  
+app/controllers/seek_controller.rb:25:in `my_seeks'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.7ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:06:34 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 74ms (Views: 73.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-31 14:06:43 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 73ms (Views: 69.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-31 14:06:59 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 51ms (Views: 48.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/seek/new" for 127.0.0.1 at 2016-12-31 14:07:27 -0500
+Processing by SeekController#new as HTML
+  Rendering seek/new.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps" ORDER BY "comps"."name" ASC[0m
+  Rendered seek/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 58ms (Views: 57.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/seek/new" for 127.0.0.1 at 2016-12-31 14:07:31 -0500
+Processing by SeekController#new as HTML
+  Rendering seek/new.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps" ORDER BY "comps"."name" ASC[0m
+  Rendered seek/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 77ms (Views: 75.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:11:13 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "50px": expected expression (e.g. 1px, bold), was ";"):
+    13:     <title>TbaDancer</title>
+    14:     <%= csrf_meta_tags %>
+    15: 
+    16:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    17:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    18:     <%= csrf_meta_tags %>
+    19:   </head>
+  
+app/assets/stylesheets/application.css.sass:22
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__3130624069136614245_70209300789240'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.0ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (28.0ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:12:01 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "50px": expected expression (e.g. 1px, bold), was ";"):
+    13:     <title>TbaDancer</title>
+    14:     <%= csrf_meta_tags %>
+    15: 
+    16:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    17:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    18:     <%= csrf_meta_tags %>
+    19:   </head>
+  
+app/assets/stylesheets/application.css.sass:22
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__3130624069136614245_70209489318560'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.7ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:12:16 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (16.6ms)
+Completed 500 Internal Server Error in 246ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "50px": expected expression (e.g. 1px, bold), was ";"):
+    13:     <title>TbaDancer</title>
+    14:     <%= csrf_meta_tags %>
+    15: 
+    16:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    17:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    18:     <%= csrf_meta_tags %>
+    19:   </head>
+  
+app/assets/stylesheets/application.css.sass:22
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__3296443737487952239_10002900'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.4ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:14:06 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "...trap-sprockets"": expected selector or at-rule, was "@import "bootst..."):
+    13:     <title>TbaDancer</title>
+    14:     <%= csrf_meta_tags %>
+    15: 
+    16:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    17:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    18:     <%= csrf_meta_tags %>
+    19:   </head>
+  
+app/assets/stylesheets/application.css.scss:19
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__3296443737487952239_70180555767620'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.3ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:14:23 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (15.4ms)
+Completed 500 Internal Server Error in 261ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "...trap-sprockets"": expected selector or at-rule, was "@import "bootst..."):
+    13:     <title>TbaDancer</title>
+    14:     <%= csrf_meta_tags %>
+    15: 
+    16:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    17:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    18:     <%= csrf_meta_tags %>
+    19:   </head>
+  
+app/assets/stylesheets/application.css.scss:19
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb___1340433459275802602_27045380'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.4ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:15:25 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (22.4ms)
+Completed 500 Internal Server Error in 259ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "...trap-sprockets"": expected selector or at-rule, was "@import "bootst..."):
+    13:     <title>TbaDancer</title>
+    14:     <%= csrf_meta_tags %>
+    15: 
+    16:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    17:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    18:     <%= csrf_meta_tags %>
+    19:   </head>
+  
+app/assets/stylesheets/application.css.scss:19
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__2947253129144214388_15902980'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (12.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (31.1ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:15:49 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (18.2ms)
+Completed 500 Internal Server Error in 274ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "50px": expected expression (e.g. 1px, bold), was ";"):
+    13:     <title>TbaDancer</title>
+    14:     <%= csrf_meta_tags %>
+    15: 
+    16:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    17:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    18:     <%= csrf_meta_tags %>
+    19:   </head>
+  
+app/assets/stylesheets/application.css.sass:22
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__3930470149543110718_14162500'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.7ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:16:18 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.6ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 586ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "body ": expected selector, was "{"):
+    13:     <title>TbaDancer</title>
+    14:     <%= csrf_meta_tags %>
+    15: 
+    16:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    17:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    18:     <%= csrf_meta_tags %>
+    19:   </head>
+  
+app/assets/stylesheets/application.css.sass:21
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__3930470149543110718_69983874896040'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.9ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:17:11 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 483ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after ".myselector": expected selector, was "{"):
+    13:     <title>TbaDancer</title>
+    14:     <%= csrf_meta_tags %>
+    15: 
+    16:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    17:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    18:     <%= csrf_meta_tags %>
+    19:   </head>
+  
+app/assets/stylesheets/application.css.sass:21
+app/views/layouts/application.html.erb:16:in `_app_views_layouts_application_html_erb__3930470149543110718_69983890020740'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.4ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:18:16 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 507ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after ".myselector": expected selector, was "{"):
+    12:     <!-- end Bootstrap stuff -->
+    13:     <title>TbaDancer</title>
+    14: 
+    15:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    16:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    17:     <%= csrf_meta_tags %>
+    18:   </head>
+  
+app/assets/stylesheets/application.css.sass:21
+app/views/layouts/application.html.erb:15:in `_app_views_layouts_application_html_erb__3930470149543110718_69983923447700'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.1ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:19:09 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 513ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after ".myselector": expected selector, was "{"):
+    12:     <!-- end Bootstrap stuff -->
+    13:     <title>TbaDancer</title>
+    14: 
+    15:   <!--  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    16:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    17:     <%= csrf_meta_tags %> -->
+    18:   </head>
+  
+app/assets/stylesheets/application.css.sass:21
+app/views/layouts/application.html.erb:15:in `_app_views_layouts_application_html_erb__3930470149543110718_69983883072360'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.3ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:19:36 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 521ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after ".myselector": expected selector, was "{"):
+    14: 
+    15:   <!--  <%# stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    16:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    17:     <%= csrf_meta_tags %> -->
+    18:   </head>
+    19: 
+    20:   <body>
+  
+app/assets/stylesheets/application.css.sass:21
+app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb__3930470149543110718_69983928396560'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (16.8ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.3ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:19:50 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:20:30 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:20:32 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:20:42 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 542ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after ".myselector": expected selector, was "{"):
+    12:     <!-- end Bootstrap stuff -->
+    13:     <title>TbaDancer</title>
+    14: 
+    15:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    16:     <%# javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    17:     <%# csrf_meta_tags %>
+    18:   </head>
+  
+app/assets/stylesheets/application.css.sass:21
+app/views/layouts/application.html.erb:15:in `_app_views_layouts_application_html_erb__3930470149543110718_69983878025760'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.1ms)
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:27:17 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 2978ms (Views: 2976.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/profile/edit" for 127.0.0.1 at 2016-12-31 14:31:33 -0500
+Processing by UserController#edit as HTML
+  Rendering user/edit.html.erb within layouts/application
+  Rendered user/edit.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @user, :url => url_for(:controller => 'user', :action => 'edit') do |f| %>
+    2: <p> <%= f.label 'Bio:' %>
+    3:   <%= f.text_area :bio %> </p>
+    4: <p> <%= f.label 'Contact Email:' %>
+  
+app/views/user/edit.html.erb:1:in `_app_views_user_edit_html_erb___3312431157101461332_69983776538840'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (18.0ms)
+Started GET "/my_seeks" for 127.0.0.1 at 2016-12-31 14:31:36 -0500
+Processing by SeekController#my_seeks as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `seeks' for nil:NilClass):
+  
+app/controllers/seek_controller.rb:25:in `my_seeks'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.8ms)
+Started GET "/seek/new" for 127.0.0.1 at 2016-12-31 14:31:39 -0500
+Processing by SeekController#new as HTML
+  Rendering seek/new.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps" ORDER BY "comps"."name" ASC[0m
+  Rendered seek/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 36ms (Views: 27.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/seek" for 127.0.0.1 at 2016-12-31 14:31:43 -0500
+Processing by SeekController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UNFu5ocMY0oFBsN3ZpSP6tH40+ZvWc14I9FVl5PGMEzEREkQWeR2zsZ9TyWUJJTfC3gvoIQD6eGkeT5/wu7JhQ==", "seek"=>{"comp_id"=>"2", "role"=>"Follower", "style"=>"Rhythm", "level"=>"Newcomer"}, "commit"=>"Create Seek"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/seek_controller.rb:12:in `create'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.6ms)
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-31 14:31:55 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 62ms (Views: 43.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-31 14:31:57 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 32ms (Views: 26.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comps/2" for 127.0.0.1 at 2016-12-31 14:32:51 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/seek/new" for 127.0.0.1 at 2016-12-31 14:32:56 -0500
+Processing by SeekController#new as HTML
+  Rendering seek/new.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps" ORDER BY "comps"."name" ASC[0m
+  Rendered seek/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:35:16 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2016-12-31 14:35:25 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=0133062350cfe7b926c82be43dbf5f417e821dc7c2ec5286&code=4/sgEOKCA4USuMYExawSEj_qhKcGvI5L7480F3PxqLtU8" for 127.0.0.1 at 2016-12-31 14:35:25 -0500
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"0133062350cfe7b926c82be43dbf5f417e821dc7c2ec5286", "code"=>"4/sgEOKCA4USuMYExawSEj_qhKcGvI5L7480F3PxqLtU8", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/lexi/Desktop/tba-dancer/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "115479719279775779968"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["oauth_token", "ya29.CjDFAxbKpDmIH5ZxvDnQS5eR2xotp6guSdL2DTLw-zq28tsVmQVR0A-vEsgxwv5dmIc"], ["oauth_expires_at", 2016-12-31 20:35:26 UTC], ["updated_at", 2016-12-31 19:35:26 UTC], ["id", 1]]
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 15.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:35:26 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2016-12-31 14:35:30 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:35:30 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:36:40 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-31 14:36:44 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.3ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-12-31 14:36:51 -0500
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComp Load (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:36:52 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-31 14:36:56 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 21ms (Views: 18.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:36:59 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/comps/2" for 127.0.0.1 at 2016-12-31 14:37:00 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:37:03 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2016-12-31 14:37:09 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=31b04a0f6c33548aff6d75499cfa0e9e73275c8588c66994&code=4/T8xb9ReAlV291r4sPGxd1FHePtu0nix2KEzvFpTtal4" for 127.0.0.1 at 2016-12-31 14:37:09 -0500
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"31b04a0f6c33548aff6d75499cfa0e9e73275c8588c66994", "code"=>"4/T8xb9ReAlV291r4sPGxd1FHePtu0nix2KEzvFpTtal4", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/lexi/Desktop/tba-dancer/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "115479719279775779968"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["oauth_token", "ya29.CjDFA5XWHwPqCZBaNMv44Kw85vyvnsvRJLX3WEZedJlRQeR24FDmwNESg3WuFIMVtCA"], ["oauth_expires_at", 2016-12-31 20:37:08 UTC], ["updated_at", 2016-12-31 19:37:10 UTC], ["id", 1]]
+  [1m[35m (57.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 62ms (ActiveRecord: 58.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:37:10 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered home/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/seek/new" for 127.0.0.1 at 2016-12-31 14:37:15 -0500
+Processing by SeekController#new as HTML
+  Rendering seek/new.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps" ORDER BY "comps"."name" ASC[0m
+  Rendered seek/new.html.erb within layouts/application (6.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/seek" for 127.0.0.1 at 2016-12-31 14:37:24 -0500
+Processing by SeekController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rzHab2X80Ejei06Unnz79ncq7GwwNJIghf+2RHVIS5Q7pP2ZuxTFzB3wwsZszODDraoQKttutrkCV92sJGCyXQ==", "seek"=>{"comp_id"=>"1", "role"=>"Follower", "style"=>"Latin", "level"=>"Bronze"}, "commit"=>"Create Seek"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "seeks" ("user_id", "comp_id", "role", "style", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["comp_id", 1], ["role", "Follower"], ["style", "Latin"], ["level", "Bronze"], ["created_at", 2016-12-31 19:37:24 UTC], ["updated_at", 2016-12-31 19:37:24 UTC]]
+  [1m[35m (34.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/comps/1
+Completed 302 Found in 40ms (ActiveRecord: 34.4ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-31 14:37:24 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (3.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 23ms (Views: 20.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:37:34 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered home/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-31 14:37:35 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (2.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 23ms (Views: 19.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:37:38 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered home/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/seek/new" for 127.0.0.1 at 2016-12-31 14:37:39 -0500
+Processing by SeekController#new as HTML
+  Rendering seek/new.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps" ORDER BY "comps"."name" ASC[0m
+  Rendered seek/new.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/seek" for 127.0.0.1 at 2016-12-31 14:37:52 -0500
+Processing by SeekController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tH8wR6d6h50xUVfYIiIUDphSpgMc5MHbHcyIsa04jYQg6hexeZKSGfIq24rQkg87QtJaRfe+5UKaZONZ/BB0TQ==", "seek"=>{"comp_id"=>"1", "role"=>"Follower", "style"=>"Smooth", "level"=>"Gold"}, "commit"=>"Create Seek"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "seeks" ("user_id", "comp_id", "role", "style", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["comp_id", 1], ["role", "Follower"], ["style", "Smooth"], ["level", "Gold"], ["created_at", 2016-12-31 19:37:52 UTC], ["updated_at", 2016-12-31 19:37:52 UTC]]
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/comps/1
+Completed 302 Found in 14ms (ActiveRecord: 9.1ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-31 14:37:52 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (4.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-31 14:38:43 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.5ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered home/show.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 50ms (Views: 44.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/seek/new" for 127.0.0.1 at 2016-12-31 14:38:44 -0500
+Processing by SeekController#new as HTML
+  Rendering seek/new.html.erb within layouts/application
+  [1m[36mComp Load (0.5ms)[0m  [1m[34mSELECT "comps".* FROM "comps" ORDER BY "comps"."name" ASC[0m
+  Rendered seek/new.html.erb within layouts/application (9.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 37ms (Views: 29.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/seek" for 127.0.0.1 at 2016-12-31 14:38:52 -0500
+Processing by SeekController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZyN91nJTvncDyOyB/EhTdKdV44ZaxGMC2UDyMLJr/8zztlogrLur88CzYNMO+EhBfdUfwLGeR5te6JnY40MGBQ==", "seek"=>{"comp_id"=>"1", "role"=>"Leader", "style"=>"Smooth", "level"=>"Gold"}, "commit"=>"Create Seek"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "seeks" ("user_id", "comp_id", "role", "style", "level", "created_at", "updated_at", "is_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["comp_id", 1], ["role", "Leader"], ["style", "Smooth"], ["level", "Gold"], ["created_at", 2016-12-31 19:38:52 UTC], ["updated_at", 2016-12-31 19:38:52 UTC], ["is_open", true]]
+  [1m[35m (53.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/comps/1
+Completed 302 Found in 63ms (ActiveRecord: 54.7ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-31 14:38:52 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (3.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 35.8ms | ActiveRecord: 0.3ms)
+
+
