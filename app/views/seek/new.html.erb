@@ -1,3 +1,4 @@
+<h1> Post a new search </h1>
 <%= form_for @seek, :url => url_for(:controller => 'seek', :action => 'create') do |f| %>
 <p> <%= f.label 'Comp:' %>
   <%= f.collection_select :comp_id, Comp.order(:name),:id,:name %> </p>
@@ -8,5 +9,5 @@
 <p> <%= f.label 'Level:' %>
   <%= f.select(:level, options_for_select(@levels)) %> </p>
 
- <%= f.submit %>
+ <%= f.submit 'Post' %>
 <% end %>

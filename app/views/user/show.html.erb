@@ -1,11 +1,15 @@
 
-<p> <%= @user.name %> </p>
+<h1> <%= @user.name %> </h1>
 
 <p> Bio: <%= @user.bio %> </p>
-<p> Contact email: <%= @user.contact %> </p>
 <p> Height: <%= @user.height %> inches </p>
+<p> Contact email: <%= @user.contact %> </p>
+<% if @user == current_user %>
+<%= link_to "Edit", profile_edit_path %>
+<% end %>
 
-<p> Current open partner searches: </p>
+
+<h3> Current open partner searches: </h3>
 <% @seeks.each do |s| %>
 <% if s.is_open %>
 <p> <%= s.level %> <%= s.role %> seeking a partner for <%= s.style %> at
