@@ -6267,3 +6267,818 @@ Processing by HomeController#show as HTML
 Completed 200 OK in 47ms (Views: 45.7ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/comps/1" for 127.0.0.1 at 2016-12-31 17:21:24 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 91ms (Views: 88.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/seek/new" for 127.0.0.1 at 2016-12-31 17:21:26 -0500
+Processing by SeekController#new as HTML
+  Rendering seek/new.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps" ORDER BY "comps"."name" ASC[0m
+  Rendered seek/new.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 59ms (Views: 57.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-01 12:08:51 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 86ms (Views: 85.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-01-01 12:13:22 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-01 12:13:22 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 52ms (Views: 50.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-01 12:13:25 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-01 12:13:25 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=ebfed955a786fbd7121f6396d572ffc0733925c65270477b&code=4/kIWz5rgkydIQmSwEY8I8zQeA9qcGuE_fnXedUukG-XE" for 127.0.0.1 at 2017-01-01 12:13:26 -0500
+(google_oauth2) Callback phase initiated.
+  
+JWT::InvalidIatError (Invalid iat):
+  
+jwt (1.5.6) lib/jwt/verify.rb:55:in `verify_iat'
+jwt (1.5.6) lib/jwt/verify.rb:10:in `block (2 levels) in singleton class'
+jwt (1.5.6) lib/jwt/decode.rb:53:in `block in verify'
+jwt (1.5.6) lib/jwt/decode.rb:50:in `each'
+jwt (1.5.6) lib/jwt/decode.rb:50:in `verify'
+jwt (1.5.6) lib/jwt.rb:126:in `decode'
+omniauth-google-oauth2 (0.2.10) lib/omniauth/strategies/google_oauth2.rb:61:in `block in <class:GoogleOauth2>'
+omniauth (1.3.1) lib/omniauth/strategy.rb:105:in `instance_eval'
+omniauth (1.3.1) lib/omniauth/strategy.rb:105:in `block in compile_stack'
+omniauth (1.3.1) lib/omniauth/strategy.rb:104:in `each'
+omniauth (1.3.1) lib/omniauth/strategy.rb:104:in `inject'
+omniauth (1.3.1) lib/omniauth/strategy.rb:104:in `compile_stack'
+(eval):7:in `extra_stack'
+omniauth (1.3.1) lib/omniauth/strategy.rb:329:in `extra'
+omniauth (1.3.1) lib/omniauth/strategy.rb:336:in `auth_hash'
+omniauth (1.3.1) lib/omniauth/strategy.rb:361:in `callback_phase'
+omniauth-oauth2 (1.3.1) lib/omniauth/strategies/oauth2.rb:79:in `callback_phase'
+omniauth (1.3.1) lib/omniauth/strategy.rb:227:in `callback_call'
+omniauth (1.3.1) lib/omniauth/strategy.rb:184:in `call!'
+omniauth (1.3.1) lib/omniauth/strategy.rb:164:in `call'
+omniauth (1.3.1) lib/omniauth/builder.rb:63:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.8ms)
+Started GET "/" for 127.0.0.1 at 2017-01-01 12:13:44 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 71ms (Views: 70.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-01 12:13:47 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 50ms (Views: 49.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-01 12:13:49 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-01 12:13:49 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=a8fba35b53c9dcf8076ef1ceedd638eb7d7776c1f0d47031&code=4/_OC0JQvnujA4beFdDvLlJX_02KJWp6BEOPS0_ERzaz4" for 127.0.0.1 at 2017-01-01 12:13:49 -0500
+(google_oauth2) Callback phase initiated.
+  
+JWT::InvalidIatError (Invalid iat):
+  
+jwt (1.5.6) lib/jwt/verify.rb:55:in `verify_iat'
+jwt (1.5.6) lib/jwt/verify.rb:10:in `block (2 levels) in singleton class'
+jwt (1.5.6) lib/jwt/decode.rb:53:in `block in verify'
+jwt (1.5.6) lib/jwt/decode.rb:50:in `each'
+jwt (1.5.6) lib/jwt/decode.rb:50:in `verify'
+jwt (1.5.6) lib/jwt.rb:126:in `decode'
+omniauth-google-oauth2 (0.2.10) lib/omniauth/strategies/google_oauth2.rb:61:in `block in <class:GoogleOauth2>'
+omniauth (1.3.1) lib/omniauth/strategy.rb:105:in `instance_eval'
+omniauth (1.3.1) lib/omniauth/strategy.rb:105:in `block in compile_stack'
+omniauth (1.3.1) lib/omniauth/strategy.rb:104:in `each'
+omniauth (1.3.1) lib/omniauth/strategy.rb:104:in `inject'
+omniauth (1.3.1) lib/omniauth/strategy.rb:104:in `compile_stack'
+(eval):7:in `extra_stack'
+omniauth (1.3.1) lib/omniauth/strategy.rb:329:in `extra'
+omniauth (1.3.1) lib/omniauth/strategy.rb:336:in `auth_hash'
+omniauth (1.3.1) lib/omniauth/strategy.rb:361:in `callback_phase'
+omniauth-oauth2 (1.3.1) lib/omniauth/strategies/oauth2.rb:79:in `callback_phase'
+omniauth (1.3.1) lib/omniauth/strategy.rb:227:in `callback_call'
+omniauth (1.3.1) lib/omniauth/strategy.rb:184:in `call!'
+omniauth (1.3.1) lib/omniauth/strategy.rb:164:in `call'
+omniauth (1.3.1) lib/omniauth/builder.rb:63:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.8ms)
+Started GET "/" for 127.0.0.1 at 2017-01-01 12:14:32 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 423ms (Views: 406.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-01 12:14:34 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-01 12:14:34 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=3696ee872a584fcfd2a4a1cccd5912082f4209426980c1b6&code=4/jAnb5687F2ikiLyJgLYDTeZdEFT6sJTi2rAksLurLr8" for 127.0.0.1 at 2017-01-01 12:14:34 -0500
+(google_oauth2) Callback phase initiated.
+  
+JWT::InvalidIatError (Invalid iat):
+  
+jwt (1.5.6) lib/jwt/verify.rb:55:in `verify_iat'
+jwt (1.5.6) lib/jwt/verify.rb:10:in `block (2 levels) in singleton class'
+jwt (1.5.6) lib/jwt/decode.rb:53:in `block in verify'
+jwt (1.5.6) lib/jwt/decode.rb:50:in `each'
+jwt (1.5.6) lib/jwt/decode.rb:50:in `verify'
+jwt (1.5.6) lib/jwt.rb:126:in `decode'
+omniauth-google-oauth2 (0.2.10) lib/omniauth/strategies/google_oauth2.rb:61:in `block in <class:GoogleOauth2>'
+omniauth (1.3.1) lib/omniauth/strategy.rb:105:in `instance_eval'
+omniauth (1.3.1) lib/omniauth/strategy.rb:105:in `block in compile_stack'
+omniauth (1.3.1) lib/omniauth/strategy.rb:104:in `each'
+omniauth (1.3.1) lib/omniauth/strategy.rb:104:in `inject'
+omniauth (1.3.1) lib/omniauth/strategy.rb:104:in `compile_stack'
+(eval):7:in `extra_stack'
+omniauth (1.3.1) lib/omniauth/strategy.rb:329:in `extra'
+omniauth (1.3.1) lib/omniauth/strategy.rb:336:in `auth_hash'
+omniauth (1.3.1) lib/omniauth/strategy.rb:361:in `callback_phase'
+omniauth-oauth2 (1.3.1) lib/omniauth/strategies/oauth2.rb:79:in `callback_phase'
+omniauth (1.3.1) lib/omniauth/strategy.rb:227:in `callback_call'
+omniauth (1.3.1) lib/omniauth/strategy.rb:184:in `call!'
+omniauth (1.3.1) lib/omniauth/strategy.rb:164:in `call'
+omniauth (1.3.1) lib/omniauth/builder.rb:63:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.0ms)
+Started GET "/" for 127.0.0.1 at 2017-01-01 12:37:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (43.5ms)
+Completed 200 OK in 2088ms (Views: 2014.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-01 12:37:42 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-01 12:37:42 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=6a1227992ac8a7e7635a1f5f1ff1e75922f5d84f6bc79319&code=4/7HGfQHyeHl2dOHs40CCDx8qb8XAXsoLsXt5tc844syQ" for 127.0.0.1 at 2017-01-01 12:37:42 -0500
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"6a1227992ac8a7e7635a1f5f1ff1e75922f5d84f6bc79319", "code"=>"4/7HGfQHyeHl2dOHs40CCDx8qb8XAXsoLsXt5tc844syQ", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/lexi/Desktop/tba-dancer/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "115479719279775779968"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.7ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["oauth_token", "ya29.CjDGAzORq4ziahgGeTakd56dj2mwyOLCFyuyrZ7C98RJ4W-ZQfPHbfm0pJrFz9rfZQ0"], ["oauth_expires_at", 2017-01-01 18:37:42 UTC], ["updated_at", 2017-01-01 17:37:43 UTC], ["id", 1]]
+  [1m[35m (36.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 117ms (ActiveRecord: 41.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-01 12:37:43 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 86ms (Views: 83.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:07:38 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (46.7ms)
+Completed 200 OK in 213ms (Views: 88.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:07:48 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 47ms (Views: 44.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:08:51 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 59ms (Views: 56.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:12:52 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 52ms (Views: 49.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-01-02 00:12:57 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-02 00:12:57 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 49ms (Views: 47.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:12:59 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 50ms (Views: 47.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:13:20 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-02 00:13:23 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-02 00:13:23 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=d1e06e57c3aab35f5bb171f6b35c4ec2f652602c3098c4c9&code=4/z1ALrZFxZUB5GDs_vj4uC0BiDja1tL3LURBgbvDoEBo" for 127.0.0.1 at 2017-01-02 00:13:23 -0500
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"d1e06e57c3aab35f5bb171f6b35c4ec2f652602c3098c4c9", "code"=>"4/z1ALrZFxZUB5GDs_vj4uC0BiDja1tL3LURBgbvDoEBo", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/lexi/Desktop/tba-dancer/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "115479719279775779968"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["oauth_token", "ya29.CjDHA1Qx0Kr9wENS10ZyagE9TUTZGwap2Ti9aK9eBvpmvN_zL0KEqbqQZJxVhYUzuMw"], ["oauth_expires_at", 2017-01-02 06:13:23 UTC], ["updated_at", 2017-01-02 05:13:24 UTC], ["id", 1]]
+  [1m[35m (21.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 26ms (ActiveRecord: 22.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-02 00:13:24 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 47.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:13:29 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 69ms (Views: 66.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:29:22 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.3ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 97ms (Views: 78.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-01-02 00:29:27 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/comps/1
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:29:27 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 45ms (Views: 42.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-02 00:29:29 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-02 00:29:29 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=aecbb0cc91e448d47e70ebb300ab204de25445b623ff579e&code=4/w94LLE5S-h5QPnUmcyvH07MPUuyf0XNKttdyUvS6zAY" for 127.0.0.1 at 2017-01-02 00:29:30 -0500
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"aecbb0cc91e448d47e70ebb300ab204de25445b623ff579e", "code"=>"4/w94LLE5S-h5QPnUmcyvH07MPUuyf0XNKttdyUvS6zAY", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/lexi/Desktop/tba-dancer/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "115479719279775779968"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["oauth_token", "ya29.CjDHAy6YkZ41BEk417A9diOIuDKzI_2JKtQ4_Pe-pxh8Mt7w7wgTlcdxzYyyNwSd6OY"], ["oauth_expires_at", 2017-01-02 06:29:30 UTC], ["updated_at", 2017-01-02 05:29:30 UTC], ["id", 1]]
+  [1m[35m (10.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to 
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 11.0ms)
+
+
+  
+ActionController::ActionControllerError (Cannot redirect to nil!):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.7ms)
+Started GET "/auth/google_oauth2/callback?state=aecbb0cc91e448d47e70ebb300ab204de25445b623ff579e&code=4/w94LLE5S-h5QPnUmcyvH07MPUuyf0XNKttdyUvS6zAY" for 127.0.0.1 at 2017-01-02 00:35:56 -0500
+(google_oauth2) Callback phase initiated.
+(google_oauth2) Authentication failure! invalid_credentials: OAuth2::Error, invalid_grant: Invalid code.
+{
+  "error" : "invalid_grant",
+  "error_description" : "Invalid code."
+}
+  
+OAuth2::Error (invalid_grant: Invalid code.
+{
+  "error" : "invalid_grant",
+  "error_description" : "Invalid code."
+}):
+  
+oauth2 (1.2.0) lib/oauth2/client.rb:113:in `request'
+oauth2 (1.2.0) lib/oauth2/client.rb:138:in `get_token'
+oauth2 (1.2.0) lib/oauth2/strategy/auth_code.rb:29:in `get_token'
+omniauth-oauth2 (1.3.1) lib/omniauth/strategies/oauth2.rb:93:in `build_access_token'
+omniauth-google-oauth2 (0.2.10) lib/omniauth/strategies/google_oauth2.rb:103:in `custom_build_access_token'
+omniauth-oauth2 (1.3.1) lib/omniauth/strategies/oauth2.rb:77:in `callback_phase'
+omniauth (1.3.1) lib/omniauth/strategy.rb:227:in `callback_call'
+omniauth (1.3.1) lib/omniauth/strategy.rb:184:in `call!'
+omniauth (1.3.1) lib/omniauth/strategy.rb:164:in `call'
+omniauth (1.3.1) lib/omniauth/builder.rb:63:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.8ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.2ms)
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:37:58 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 91ms (Views: 74.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:38:01 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.1ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 88ms (Views: 86.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-02 00:38:04 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-02 00:38:05 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=a360dcfec53e41e0dcfe90fb792c1a169efad09bc57656d8&code=4/MlsxBbFDETeAVkPIPLB_Z3PaykNkbdc12yNTIsIvC9Q" for 127.0.0.1 at 2017-01-02 00:38:05 -0500
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"a360dcfec53e41e0dcfe90fb792c1a169efad09bc57656d8", "code"=>"4/MlsxBbFDETeAVkPIPLB_Z3PaykNkbdc12yNTIsIvC9Q", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/lexi/Desktop/tba-dancer/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "115479719279775779968"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["oauth_token", "ya29.CjDHA_yg_jwGgHsl2A1iEISOYC1ACrCJXmr7v2BRuqzOtQb4_co6vgjCJ86UK1spnjc"], ["oauth_expires_at", 2017-01-02 06:38:05 UTC], ["updated_at", 2017-01-02 05:38:05 UTC], ["id", 1]]
+  [1m[35m (11.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to 
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 11.5ms)
+
+
+  
+ActionController::ActionControllerError (Cannot redirect to nil!):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.1ms)
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:38:17 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:38:18 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:38:30 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:41:49 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:41:50 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:41:54 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:41:55 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:42:10 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:42:13 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:42:14 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:42:19 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:42:20 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:42:30 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:42:36 -0500
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/lexi/Desktop/tba-dancer/app/controllers/sessions_controller.rb:5)
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:43:14 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:43:15 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:43:20 -0500
+Started PUT "/__web_console/repl_sessions/dccf8dd9ce7670d02482343faa02cd4b" for 127.0.0.1 at 2017-01-02 00:43:23 -0500
+Started GET "/" for 127.0.0.1 at 2017-01-02 00:44:01 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 75ms (Views: 69.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:44:03 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 104ms (Views: 95.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-02 00:44:04 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-02 00:44:05 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=437244928e7e091a40de336cff6751d782dcaa0d816a79ab&code=4/RY6O-z0hmj6onGSgMhdSzjZ1h5h_sjzUN9Rd8lpAfww" for 127.0.0.1 at 2017-01-02 00:44:05 -0500
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"437244928e7e091a40de336cff6751d782dcaa0d816a79ab", "code"=>"4/RY6O-z0hmj6onGSgMhdSzjZ1h5h_sjzUN9Rd8lpAfww", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/lexi/Desktop/tba-dancer/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "115479719279775779968"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["oauth_token", "ya29.CjDHA90qwzJX-gKaLjB7n6A-MdPA1d3Mel-1oDeDiY7qrujhKAMol57oc3VNxgC22Jo"], ["oauth_expires_at", 2017-01-02 06:44:05 UTC], ["updated_at", 2017-01-02 05:44:06 UTC], ["id", 1]]
+  [1m[35m (13.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/comps/1
+Completed 302 Found in 23ms (ActiveRecord: 14.1ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:44:06 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 79ms (Views: 75.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-01-02 00:44:12 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/comps/1
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/comps/1" for 127.0.0.1 at 2017-01-02 00:44:12 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComp Load (0.3ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 57ms (Views: 54.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-02 00:44:14 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 59ms (Views: 57.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/comps/2" for 127.0.0.1 at 2017-01-02 00:44:15 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 2]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 58ms (Views: 56.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-02 00:44:17 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-01-02 00:44:17 -0500
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=a5f240cfef22a443d7f6d9a7974327f0efec65b8b932b9de&code=4/4w7MdBMzoBygHO8KlA64qp69KqNbz3DGVF1fqb1q4Vw" for 127.0.0.1 at 2017-01-02 00:44:17 -0500
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"a5f240cfef22a443d7f6d9a7974327f0efec65b8b932b9de", "code"=>"4/4w7MdBMzoBygHO8KlA64qp69KqNbz3DGVF1fqb1q4Vw", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/lexi/Desktop/tba-dancer/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "115479719279775779968"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = ?, "oauth_expires_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["oauth_token", "ya29.CjDHA3Y6Jq4GfsQtsfoYxLEcs0S9pd8KCnACfE3U93S1etBzFzAGuKI6Z3xtARKkqaM"], ["oauth_expires_at", 2017-01-02 06:44:17 UTC], ["updated_at", 2017-01-02 05:44:17 UTC], ["id", 1]]
+  [1m[35m (81.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/comps/2
+Completed 302 Found in 86ms (ActiveRecord: 81.4ms)
+
+
+Started GET "/comps/2" for 127.0.0.1 at 2017-01-02 00:44:17 -0500
+Processing by CompController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mComp Load (0.1ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering comp/show.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."comp_id" = ?[0m  [["comp_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered comp/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 50ms (Views: 48.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/my_seeks" for 127.0.0.1 at 2017-01-02 00:44:23 -0500
+Processing by SeekController#my_seeks as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering seek/my_seeks.html.erb within layouts/application
+  [1m[36mSeek Load (0.2ms)[0m  [1m[34mSELECT "seeks".* FROM "seeks" WHERE "seeks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComp Load (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComp Load (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "comps".* FROM "comps" WHERE "comps"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered seek/my_seeks.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 282ms (Views: 60.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-02 00:44:29 -0500
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  [1m[36mComp Load (0.2ms)[0m  [1m[34mSELECT "comps".* FROM "comps"[0m
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 46ms (Views: 44.8ms | ActiveRecord: 0.4ms)
+
+

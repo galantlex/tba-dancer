@@ -13,6 +13,10 @@
   <% end %>
 <% end %>
 
+<p> No open searches right for you?
 <% if current_user %>
-<%= link_to "Create new search", create_search_path %>
+<%= link_to "Post a new search", create_search_path %>
+<% else %>
+<%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+to post a new search </p>
 <% end %>
