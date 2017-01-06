@@ -1,3 +1,17 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.center-cropped {
+  margin: 0 auto;
+  height: 250px;
+  background-position: center 42%;
+  background-repeat: no-repeat;
+}
+
+.welcome-header {
+  color: lightcyan;
+  text-align: center;
+  vertical-align: center;
+  line-height: 220px;
+}

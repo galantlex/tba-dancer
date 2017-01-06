@@ -1,6 +1,12 @@
-<h1>Welcome to TBA Partner Search!</h1>
+<div class="center-cropped"
+     style="background-image:url('/images/feet.jpg');">
+  <h1 class="welcome-header"> Welcome to TBA Dancer </h1>
+  <p class="pull-right" style="color:lightcyan; margin-right:55px;"> Photo by <a href="throughthepicture.com" style="color:antiquewhite;">Meg Smith</a></p>
+</div>
+
+<%# image_tag "feet.jpg", class:"img-responsive img-rounded center-block"%>
 
 <h2>Browse open searches by competition:</h2>
 <% @comps.each do |c| %>
-<p> <%= link_to c.name, comp_show_path(c) %> </p>
+<%= link_to c.name, comp_show_path(c), :class=>"btn btn-primary"%>
 <% end %>
