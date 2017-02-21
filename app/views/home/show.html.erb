@@ -1,12 +1,16 @@
-<div class="center-cropped"
+<div class="center-cropped img-rounded"
      style="background-image:url('/images/feet.jpg');">
-  <h1 class="welcome-header"> Welcome to TBA Dancer </h1>
-  <p class="pull-right" style="color:lightcyan; margin-right:55px;"> Photo by <a href="http://throughthepicture.com" style="color:antiquewhite;">Meg Smith</a></p>
+  <p class="caption"> Photo by <a href="http://throughthepicture.com"
+				  style="color:antiquewhite;">Meg Smith</a></p>
 </div>
 
 <%# image_tag "feet.jpg", class:"img-responsive img-rounded center-block"%>
 
 <h2>Browse open searches by competition:</h2>
 <% @comps.each do |c| %>
-<%= link_to c.name, comp_show_path(c), :class=>"btn btn-primary"%>
+<%= link_to c.name, comp_show_path(c) %>
+<br/>
 <% end %>
+<br/>
+Questions about the app? Want to help me make it nicer looking (please)?
+Email Lexi at <a href="mailto:contact@galantino.pw">contact@galantino.pw</a>!

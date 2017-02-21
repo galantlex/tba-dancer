@@ -1,16 +1,21 @@
 <h2> My open partner searches:</h2>
-<% @my_seeks.each do |s| %>
-<% if s.is_open %>
-<p> You are a <%= s.level %> <%= s.role %>
-  seeking a partner for <%= s.style %> for <%= s.comp.name %>
-  <%= link_to "Close Search", close_seek_path(s) %> </p>
-<% end %>
-<% end %>
+<div class="my-seeks" style="width:60%;">
+  <% @my_seeks.each do |s| %>
+    <% if s.is_open %>
+      <p> You are a <%= s.level %> <%= s.role %>
+      seeking a partner for <%= s.style %> for <%= s.comp.name %>
+      <%= link_to "Close Search", close_seek_path(s),
+	  :class=>"btn btn-warning pull-right btn-xs"%> </p>
+    <% end %>
+  <% end %>
+</div>
 
 <h2> My closed partner searches: </h2>
-<% @my_seeks.each do |s| %>
-<% unless s.is_open %>
-<p> You, as a <%= s.level %> <%= s.role %>,
-  found a partner for <%= s.style %> for <%= s.comp.name %> </p>
-<% end %>
-<% end %>
+<div class="my-seeks">
+  <% @my_seeks.each do |s| %>
+    <% unless s.is_open %>
+      <p> You, as a <%= s.level %> <%= s.role %>, found a partner for
+          <%= s.style %> for <%= s.comp.name %> </p>
+    <% end %>
+  <% end %>
+</div>
