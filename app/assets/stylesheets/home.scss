@@ -6,12 +6,12 @@
   margin: 0 auto;
   height: 250px;
   background-position: center 42%;
-  background-repeat: no-repeat;
+  position: relative;
 }
 
-.welcome-header {
+.caption {
+  position: absolute;
+  bottom: 0;
+  right: 3%;
   color: lightcyan;
-  text-align: center;
-  vertical-align: center;
-  line-height: 220px;
 }
