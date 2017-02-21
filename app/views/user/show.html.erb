@@ -3,7 +3,7 @@
 
 <p> Bio: <%= @user.bio %> </p>
 <p> Height: <%= @user.height %> inches </p>
-<p> Contact email: <%= @user.contact %> </p>
+<p><a href="mailto:<%= @user.contact %>" target="_top">Email</a></p>
 <% if @user == current_user %>
 <%= link_to "Edit", profile_edit_path %>
 <% end %>
@@ -13,6 +13,6 @@
 <% @seeks.each do |s| %>
 <% if s.is_open %>
 <p> <%= s.level %> <%= s.role %> seeking a partner for <%= s.style %> at
-  <%= s.comp.name %> </p>
+  <%= link_to s.comp.name, comp_show_path(s.comp) %> </p>
 <% end %>
 <% end %>

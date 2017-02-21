@@ -3,7 +3,7 @@
   <% @my_seeks.each do |s| %>
     <% if s.is_open %>
       <p> You are a <%= s.level %> <%= s.role %>
-      seeking a partner for <%= s.style %> for <%= s.comp.name %>
+      seeking a partner for <%= s.style %> for <%= link_to s.comp.name, comp_show_path(s.comp) %>
       <%= link_to "Close Search", close_seek_path(s),
 	  :class=>"btn btn-warning pull-right btn-xs"%> </p>
     <% end %>
@@ -15,7 +15,7 @@
   <% @my_seeks.each do |s| %>
     <% unless s.is_open %>
       <p> You, as a <%= s.level %> <%= s.role %>, found a partner for
-          <%= s.style %> for <%= s.comp.name %> </p>
+          <%= s.style %> for <%= link_to s.comp.name, comp_show_path(s.comp) %> </p>
     <% end %>
   <% end %>
 </div>
